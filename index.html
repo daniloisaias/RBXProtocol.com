@@ -1,15 +1,3 @@
-<!--
-██████╗ ██████╗ ██╗  ██╗
-██╔══██╗██╔══██╗╚██╗██╔╝
-██████╔╝██████╔╝ ╚███╔╝
-██╔══██╗██╔══██╗ ██╔██╗
-██║  ██║██████╔╝██╔╝ ██╗
-╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝
-
-RBXProtocol Ultra Epic System
-Editor Oficial: Danilo Isaías Cuevas Ibarra
--->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,9 +11,9 @@ Editor Oficial: Danilo Isaías Cuevas Ibarra
 
 <style>
 
-/* =============================== */
+/* ========================= */
 /* RESET */
-/* =============================== */
+/* ========================= */
 
 *{
 margin:0;
@@ -47,9 +35,9 @@ overflow-x:hidden;
 cursor:none;
 }
 
-/* =============================== */
+/* ========================= */
 /* SCROLLBAR */
-/* =============================== */
+/* ========================= */
 
 ::-webkit-scrollbar{
 width:10px;
@@ -60,14 +48,14 @@ background:#2563eb;
 border-radius:999px;
 }
 
-/* =============================== */
+/* ========================= */
 /* CURSOR */
-/* =============================== */
+/* ========================= */
 
 .cursor{
 position:fixed;
-width:22px;
-height:22px;
+width:20px;
+height:20px;
 border:2px solid #3b82f6;
 border-radius:50%;
 pointer-events:none;
@@ -76,15 +64,11 @@ transform:translate(-50%,-50%);
 box-shadow:
 0 0 20px #3b82f6,
 0 0 40px #3b82f6;
-transition:
-transform .08s linear,
-width .2s,
-height .2s;
 }
 
-/* =============================== */
+/* ========================= */
 /* PARTICLES */
-/* =============================== */
+/* ========================= */
 
 #particles{
 position:fixed;
@@ -95,9 +79,9 @@ height:100%;
 z-index:-2;
 }
 
-/* =============================== */
+/* ========================= */
 /* LOADER */
-/* =============================== */
+/* ========================= */
 
 #loader{
 position:fixed;
@@ -113,7 +97,7 @@ transition:1s;
 }
 
 .loader-title{
-font-size:75px;
+font-size:80px;
 font-weight:900;
 }
 
@@ -128,12 +112,12 @@ height:12px;
 background:#111827;
 border-radius:999px;
 overflow:hidden;
-margin-top:35px;
+margin-top:30px;
 }
 
 .loader-progress{
-height:100%;
 width:0%;
+height:100%;
 background:linear-gradient(90deg,#2563eb,#3b82f6);
 animation:loading 5s forwards;
 box-shadow:0 0 30px #3b82f6;
@@ -141,14 +125,14 @@ box-shadow:0 0 30px #3b82f6;
 
 .loader-text{
 margin-top:20px;
-font-weight:700;
-color:#94a3b8;
 letter-spacing:3px;
+color:#94a3b8;
+font-weight:700;
 }
 
-/* =============================== */
+/* ========================= */
 /* NAVBAR */
-/* =============================== */
+/* ========================= */
 
 nav{
 position:fixed;
@@ -172,7 +156,7 @@ font-weight:900;
 
 .logo span{
 color:#3b82f6;
-text-shadow:0 0 20px #3b82f6;
+text-shadow:0 0 25px #3b82f6;
 }
 
 .nav-links{
@@ -184,8 +168,8 @@ gap:30px;
 text-decoration:none;
 color:#94a3b8;
 font-weight:600;
-position:relative;
 transition:.3s;
+position:relative;
 }
 
 .nav-links a:hover{
@@ -213,7 +197,7 @@ align-items:center;
 gap:20px;
 }
 
-.live-system{
+.live{
 display:flex;
 align-items:center;
 gap:10px;
@@ -234,7 +218,7 @@ animation:pulse 1s infinite;
 width:50px;
 height:50px;
 border:none;
-border-radius:16px;
+border-radius:15px;
 background:rgba(255,255,255,.05);
 color:white;
 font-size:20px;
@@ -247,9 +231,9 @@ background:#2563eb;
 transform:rotate(180deg);
 }
 
-/* =============================== */
+/* ========================= */
 /* SETTINGS */
-/* =============================== */
+/* ========================= */
 
 .settings{
 position:fixed;
@@ -259,11 +243,11 @@ width:400px;
 height:calc(100vh - 120px);
 background:rgba(15,23,42,.95);
 backdrop-filter:blur(20px);
-border-left:1px solid rgba(255,255,255,.05);
 padding:30px;
-overflow:auto;
 transition:.5s;
 z-index:999999;
+overflow:auto;
+border-left:1px solid rgba(255,255,255,.05);
 }
 
 .settings.active{
@@ -271,31 +255,22 @@ right:0;
 }
 
 .settings h2{
-font-size:32px;
+font-size:35px;
 margin-bottom:30px;
 }
 
-.setting-group{
-margin-bottom:30px;
-}
-
-.setting-group h3{
-margin-bottom:15px;
-color:#60a5fa;
-}
-
-.setting-group label{
+.settings label{
 display:block;
-margin-bottom:15px;
+margin-bottom:20px;
 color:#cbd5e1;
 }
 
-.setting-group input[type="color"]{
+.settings input[type="color"]{
 width:100%;
 height:50px;
 border:none;
 border-radius:12px;
-background:none;
+margin-top:10px;
 }
 
 .save-btn{
@@ -306,13 +281,14 @@ border-radius:18px;
 background:linear-gradient(90deg,#2563eb,#3b82f6);
 color:white;
 font-weight:800;
-cursor:pointer;
 font-size:16px;
+cursor:pointer;
+margin-top:20px;
 }
 
-/* =============================== */
+/* ========================= */
 /* HERO */
-/* =============================== */
+/* ========================= */
 
 .hero{
 padding:140px 40px 80px;
@@ -330,7 +306,7 @@ position:relative;
 overflow:hidden;
 box-shadow:
 0 0 40px rgba(0,0,0,.5),
-0 0 100px rgba(59,130,246,.06);
+0 0 100px rgba(59,130,246,.08);
 }
 
 .glass::before{
@@ -391,15 +367,15 @@ padding:18px 35px;
 border:none;
 border-radius:18px;
 font-weight:800;
-cursor:pointer;
 font-size:16px;
+cursor:pointer;
 transition:.4s;
 }
 
 .primary{
 background:linear-gradient(90deg,#2563eb,#3b82f6);
 color:white;
-box-shadow:0 0 40px rgba(59,130,246,.5);
+box-shadow:0 0 40px rgba(59,130,246,.4);
 }
 
 .primary:hover{
@@ -415,9 +391,9 @@ color:white;
 transform:translateY(-6px);
 }
 
-/* =============================== */
+/* ========================= */
 /* STATS */
-/* =============================== */
+/* ========================= */
 
 .stats{
 display:grid;
@@ -445,9 +421,40 @@ font-size:42px;
 margin-bottom:10px;
 }
 
-/* =============================== */
-/* RIGHT PANEL */
-/* =============================== */
+/* ========================= */
+/* PROFILE */
+/* ========================= */
+
+.profile{
+margin-top:35px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.05);
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.profile img{
+width:90px;
+height:90px;
+border-radius:20px;
+object-fit:cover;
+}
+
+.profile h3{
+font-size:26px;
+}
+
+.profile p{
+margin-top:5px;
+color:#94a3b8;
+}
+
+/* ========================= */
+/* TWITTER */
+/* ========================= */
 
 .right-panel{
 padding:35px;
@@ -463,13 +470,13 @@ transition:.4s;
 }
 
 .twitter-card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
 border-color:#3b82f6;
 }
 
 .twitter-card h3{
-margin-bottom:15px;
 font-size:20px;
+margin-bottom:15px;
 }
 
 .twitter-card p{
@@ -482,43 +489,11 @@ margin-top:20px;
 display:flex;
 gap:20px;
 color:#64748b;
-font-size:14px;
 }
 
-/* =============================== */
-/* USER */
-/* =============================== */
-
-.profile{
-margin-top:25px;
-padding:25px;
-border-radius:25px;
-background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.05);
-display:flex;
-align-items:center;
-gap:20px;
-}
-
-.profile img{
-width:80px;
-height:80px;
-border-radius:20px;
-object-fit:cover;
-}
-
-.profile h3{
-font-size:24px;
-}
-
-.profile p{
-color:#94a3b8;
-margin-top:5px;
-}
-
-/* =============================== */
+/* ========================= */
 /* UPDATES */
-/* =============================== */
+/* ========================= */
 
 .updates{
 padding:0 40px 80px;
@@ -560,13 +535,13 @@ margin-bottom:15px;
 }
 
 .update-card p{
-color:#94a3b8;
 line-height:1.8;
+color:#94a3b8;
 }
 
-/* =============================== */
+/* ========================= */
 /* FOOTER */
-/* =============================== */
+/* ========================= */
 
 footer{
 padding:60px;
@@ -575,9 +550,9 @@ color:#64748b;
 font-weight:600;
 }
 
-/* =============================== */
+/* ========================= */
 /* ANIMATIONS */
-/* =============================== */
+/* ========================= */
 
 @keyframes loading{
 0%{width:0%;}
@@ -590,9 +565,9 @@ font-weight:600;
 100%{transform:scale(1);}
 }
 
-/* =============================== */
+/* ========================= */
 /* RESPONSIVE */
-/* =============================== */
+/* ========================= */
 
 @media(max-width:1200px){
 
@@ -613,6 +588,7 @@ width:100%;
 </style>
 
 </head>
+
 <body>
 
 <!-- LOADER -->
@@ -641,7 +617,7 @@ INITIALIZING GLOBAL SECURITY...
 
 <canvas id="particles"></canvas>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 
 <nav>
 
@@ -659,7 +635,7 @@ RBX<span>Protocol</span>
 
 <div class="nav-right">
 
-<div class="live-system">
+<div class="live">
 <div class="live-dot"></div>
 ONLINE
 </div>
@@ -678,10 +654,6 @@ ONLINE
 
 <h2>Configuración</h2>
 
-<div class="setting-group">
-
-<h3>Visual</h3>
-
 <label>
 <input type="checkbox" id="particlesToggle" checked>
  Activar partículas
@@ -697,15 +669,10 @@ ONLINE
  Activar glow
 </label>
 
-</div>
-
-<div class="setting-group">
-
-<h3>Color principal</h3>
-
+<label>
+Color Principal
 <input type="color" id="mainColor" value="#2563eb">
-
-</div>
+</label>
 
 <button class="save-btn" id="saveSettings">
 Guardar Configuración
@@ -730,7 +697,7 @@ Security Center
 
 <div class="description">
 Centro avanzado de monitoreo inspirado en Roblox Creator Hub y GitHub.
-Sistema visual futurista con estadísticas dinámicas, seguridad avanzada y paneles interactivos.
+Interfaz futurista con estadísticas dinámicas y seguridad avanzada.
 </div>
 
 <div class="buttons">
@@ -775,7 +742,7 @@ Ver Perfil Roblox
 <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-310C1E8A14F99B6F1B0D3C46D2D15E4B-Png/150/150/AvatarHeadshot/Png/noFilter">
 
 <div>
-<h3>Editor Danilo</h3>
+<h3>Danilo Isaías</h3>
 <p>@daniloisaias</p>
 </div>
 
@@ -787,10 +754,10 @@ Ver Perfil Roblox
 
 <div class="twitter-card">
 
-<h3>🐦 Roblox @Roblox</h3>
+<h3>🐦 Roblox Official</h3>
 
 <p>
-Hemos activado nuevas mejoras de rendimiento y protección avanzada para todos los usuarios.
+Se mejoró el rendimiento global y la estabilidad de servidores.
 </p>
 
 <div class="twitter-footer">
@@ -805,7 +772,7 @@ Hemos activado nuevas mejoras de rendimiento y protección avanzada para todos l
 <h3>🐦 Roblox Security</h3>
 
 <p>
-Nuevo sistema inteligente anti exploit y mejoras en servidores globales.
+Nuevo sistema inteligente anti exploit y protección avanzada.
 </p>
 
 <div class="twitter-footer">
@@ -820,7 +787,7 @@ Nuevo sistema inteligente anti exploit y mejoras en servidores globales.
 <h3>🐦 Roblox Engine</h3>
 
 <p>
-Se optimizó el rendimiento gráfico y se redujo el tiempo de carga global.
+Optimización del motor gráfico y mejoras de carga global.
 </p>
 
 <div class="twitter-footer">
@@ -846,44 +813,32 @@ Actualizaciones <span>2026</span>
 
 <div class="update-card">
 <h3>🤖 IA Avanzada</h3>
-<p>
-Moderación automática inteligente en tiempo real.
-</p>
+<p>Moderación automática inteligente.</p>
 </div>
 
 <div class="update-card">
 <h3>☁ Roblox Cloud</h3>
-<p>
-Infraestructura optimizada globalmente.
-</p>
+<p>Infraestructura optimizada globalmente.</p>
 </div>
 
 <div class="update-card">
 <h3>🎮 Cross Platform</h3>
-<p>
-Compatibilidad total entre plataformas.
-</p>
+<p>Compatibilidad total entre plataformas.</p>
 </div>
 
 <div class="update-card">
 <h3>🛡 Protección HWID</h3>
-<p>
-Protección avanzada contra actividad sospechosa.
-</p>
+<p>Protección avanzada en tiempo real.</p>
 </div>
 
 <div class="update-card">
 <h3>🚀 Creator Hub</h3>
-<p>
-Nuevas herramientas para desarrolladores.
-</p>
+<p>Nuevas herramientas para desarrolladores.</p>
 </div>
 
 <div class="update-card">
 <h3>🛒 Marketplace 2.0</h3>
-<p>
-Experiencia visual completamente renovada.
-</p>
+<p>Experiencia visual renovada.</p>
 </div>
 
 </div>
@@ -896,9 +851,9 @@ Editor Oficial — Danilo Isaías Cuevas Ibarra
 
 <script>
 
-/* =============================== */
+/* ========================= */
 /* BLOCK COPY */
-/* =============================== */
+/* ========================= */
 
 document.addEventListener('contextmenu',e=>e.preventDefault());
 
@@ -907,9 +862,9 @@ document.addEventListener('keydown',e=>{
 if(
 e.ctrlKey &&
 (
-e.key === 'c' ||
-e.key === 'u' ||
-e.key === 's'
+e.key==='c' ||
+e.key==='u' ||
+e.key==='s'
 )
 ){
 e.preventDefault();
@@ -917,9 +872,9 @@ e.preventDefault();
 
 });
 
-/* =============================== */
+/* ========================= */
 /* LOADER */
-/* =============================== */
+/* ========================= */
 
 window.addEventListener('load',()=>{
 
@@ -935,9 +890,9 @@ document.getElementById('loader').style.display='none';
 
 });
 
-/* =============================== */
+/* ========================= */
 /* CURSOR */
-/* =============================== */
+/* ========================= */
 
 const cursor =
 document.querySelector('.cursor');
@@ -949,9 +904,9 @@ cursor.style.top = e.clientY + 'px';
 
 });
 
-/* =============================== */
+/* ========================= */
 /* PARTICLES */
-/* =============================== */
+/* ========================= */
 
 const canvas =
 document.getElementById('particles');
@@ -1011,9 +966,9 @@ requestAnimationFrame(animate);
 
 animate();
 
-/* =============================== */
+/* ========================= */
 /* LIVE STATS */
-/* =============================== */
+/* ========================= */
 
 function updateStats(){
 
@@ -1030,9 +985,9 @@ Math.floor(10000 + Math.random()*4000);
 
 setInterval(updateStats,2000);
 
-/* =============================== */
+/* ========================= */
 /* SETTINGS */
-/* =============================== */
+/* ========================= */
 
 const settingsBtn =
 document.getElementById('settingsBtn');
@@ -1046,9 +1001,9 @@ settingsPanel.classList.toggle('active');
 
 };
 
-/* =============================== */
+/* ========================= */
 /* SAVE CONFIG */
-/* =============================== */
+/* ========================= */
 
 document.getElementById('saveSettings')
 .onclick = ()=>{
@@ -1070,7 +1025,7 @@ document.getElementById('mainColor').value
 };
 
 localStorage.setItem(
-'rbx_ultra_config',
+'rbx_config',
 JSON.stringify(config)
 );
 
@@ -1080,9 +1035,9 @@ alert('Configuración guardada');
 
 };
 
-/* =============================== */
+/* ========================= */
 /* APPLY CONFIG */
-/* =============================== */
+/* ========================= */
 
 function applyConfig(config){
 
@@ -1101,13 +1056,13 @@ document.documentElement.style
 
 }
 
-/* =============================== */
+/* ========================= */
 /* LOAD CONFIG */
-/* =============================== */
+/* ========================= */
 
 const saved =
 JSON.parse(
-localStorage.getItem('rbx_ultra_config')
+localStorage.getItem('rbx_config')
 );
 
 if(saved){
@@ -1116,9 +1071,9 @@ applyConfig(saved);
 
 }
 
-/* =============================== */
+/* ========================= */
 /* RESIZE */
-/* =============================== */
+/* ========================= */
 
 window.addEventListener('resize',()=>{
 
