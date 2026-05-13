@@ -1,14 +1,32 @@
+<!--
+██████╗ ██████╗ ██╗  ██╗
+██╔══██╗██╔══██╗╚██╗██╔╝
+██████╔╝██████╔╝ ╚███╔╝
+██╔══██╗██╔══██╗ ██╔██╗
+██║  ██║██████╔╝██╔╝ ██╗
+╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝
+
+RBXProtocol Ultra Interface
+Editor: Danilo Isaías Cuevas Ibarra
+-->
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RBXProtocol Security</title>
+<title>RBXProtocol Security Center</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
+/* ========================= */
+/* RESET */
+/* ========================= */
 
 *{
 margin:0;
@@ -17,44 +35,114 @@ box-sizing:border-box;
 font-family:'Inter',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-background:#02040a;
+background:#030712;
 overflow-x:hidden;
 color:white;
 }
 
-/* PARTICULAS */
+/* ========================= */
+/* LOADING SCREEN */
+/* ========================= */
 
-#particles{
+#loader{
 position:fixed;
 width:100%;
 height:100%;
-top:0;
-left:0;
-z-index:-1;
-background:
-radial-gradient(circle at top,#0f172a,#02040a 70%);
+background:#020617;
+z-index:999999;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+transition:1s;
 }
 
+.loader-logo{
+font-size:70px;
+font-weight:900;
+letter-spacing:3px;
+animation:pulse 2s infinite;
+}
+
+.loader-logo span{
+color:#3b82f6;
+text-shadow:0 0 30px #3b82f6;
+}
+
+.loader-bar{
+width:400px;
+height:10px;
+background:#111827;
+margin-top:40px;
+border-radius:999px;
+overflow:hidden;
+}
+
+.loader-progress{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#2563eb,#60a5fa);
+animation:loading 5s forwards;
+box-shadow:0 0 20px #3b82f6;
+}
+
+.loading-text{
+margin-top:20px;
+color:#94a3b8;
+font-weight:600;
+letter-spacing:2px;
+}
+
+@keyframes loading{
+0%{width:0%;}
+100%{width:100%;}
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+/* ========================= */
+/* PARTICLES */
+/* ========================= */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* ========================= */
 /* NAVBAR */
+/* ========================= */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-height:80px;
+height:90px;
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 padding:0 40px;
-background:rgba(5,10,20,.7);
+background:rgba(2,6,23,.75);
 backdrop-filter:blur(20px);
 border-bottom:1px solid rgba(255,255,255,.08);
 z-index:999;
 }
 
 .logo{
-font-size:34px;
+font-size:38px;
 font-weight:900;
 letter-spacing:1px;
 }
@@ -73,8 +161,8 @@ gap:30px;
 text-decoration:none;
 color:#94a3b8;
 font-weight:600;
-transition:.3s;
 position:relative;
+transition:.3s;
 }
 
 .nav-links a:hover{
@@ -97,37 +185,54 @@ box-shadow:0 0 10px #3b82f6;
 width:100%;
 }
 
+/* ========================= */
 /* HERO */
+/* ========================= */
 
 .hero{
 min-height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
-padding:120px 50px;
-position:relative;
+align-items:center;
+padding:160px 50px 100px;
 }
 
-.hero-content{
-max-width:1400px;
+.hero-container{
+max-width:1600px;
 width:100%;
 display:grid;
-grid-template-columns:1.2fr 1fr;
-gap:40px;
+grid-template-columns:1.3fr 0.8fr;
+gap:35px;
 }
+
+/* ========================= */
+/* PANELS */
+/* ========================= */
 
 .panel{
 background:rgba(15,23,42,.6);
 border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(25px);
 border-radius:30px;
 padding:40px;
+backdrop-filter:blur(25px);
 position:relative;
 overflow:hidden;
 box-shadow:
-0 0 40px rgba(0,0,0,.6),
-0 0 80px rgba(59,130,246,.08);
+0 0 50px rgba(0,0,0,.5),
+0 0 100px rgba(59,130,246,.08);
 animation:float 6s ease-in-out infinite;
+}
+
+.panel::before{
+content:'';
+position:absolute;
+width:400px;
+height:400px;
+background:#3b82f6;
+filter:blur(180px);
+opacity:.08;
+right:-100px;
+top:-100px;
 }
 
 @keyframes float{
@@ -136,35 +241,27 @@ animation:float 6s ease-in-out infinite;
 100%{transform:translateY(0px);}
 }
 
-.panel::before{
-content:'';
-position:absolute;
-width:300px;
-height:300px;
-background:#3b82f6;
-filter:blur(150px);
-opacity:.15;
-top:-100px;
-right:-100px;
-}
+/* ========================= */
+/* TITLE */
+/* ========================= */
 
 .badge{
 display:inline-block;
-padding:10px 18px;
-background:rgba(59,130,246,.15);
-border:1px solid rgba(59,130,246,.4);
+padding:12px 22px;
 border-radius:999px;
-font-size:14px;
-font-weight:700;
-margin-bottom:25px;
+background:rgba(59,130,246,.1);
+border:1px solid rgba(59,130,246,.4);
 color:#60a5fa;
+font-weight:700;
+font-size:14px;
+margin-bottom:30px;
 }
 
 .title{
-font-size:74px;
-line-height:1;
+font-size:82px;
+line-height:0.95;
 font-weight:900;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .title span{
@@ -172,15 +269,17 @@ color:#3b82f6;
 text-shadow:0 0 25px #3b82f6;
 }
 
-.desc{
-color:#94a3b8;
+.description{
 font-size:18px;
-line-height:1.8;
-margin-bottom:35px;
-max-width:700px;
+line-height:1.9;
+color:#94a3b8;
+max-width:750px;
+margin-bottom:40px;
 }
 
-/* BOTONES */
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
 
 .buttons{
 display:flex;
@@ -189,11 +288,11 @@ flex-wrap:wrap;
 }
 
 .btn{
-padding:18px 32px;
+padding:18px 34px;
 border:none;
-border-radius:18px;
-font-size:16px;
+border-radius:20px;
 font-weight:800;
+font-size:16px;
 cursor:pointer;
 transition:.4s;
 position:relative;
@@ -203,46 +302,48 @@ overflow:hidden;
 .btn-primary{
 background:linear-gradient(90deg,#2563eb,#3b82f6);
 color:white;
-box-shadow:0 0 30px rgba(59,130,246,.5);
+box-shadow:0 0 40px rgba(59,130,246,.4);
 }
 
 .btn-primary:hover{
 transform:translateY(-5px) scale(1.05);
-box-shadow:0 0 50px rgba(59,130,246,.9);
+box-shadow:0 0 70px rgba(59,130,246,.9);
 }
 
 .btn-secondary{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
 color:white;
 }
 
 .btn-secondary:hover{
-background:rgba(255,255,255,.1);
+background:rgba(255,255,255,.08);
 transform:translateY(-5px);
 }
 
+/* ========================= */
 /* STATS */
+/* ========================= */
 
 .stats{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:20px;
-margin-top:40px;
+margin-top:45px;
 }
 
 .stat{
 background:rgba(255,255,255,.04);
 border:1px solid rgba(255,255,255,.05);
 padding:25px;
-border-radius:22px;
+border-radius:24px;
 transition:.4s;
 }
 
 .stat:hover{
 transform:scale(1.05);
 border-color:#3b82f6;
-box-shadow:0 0 40px rgba(59,130,246,.2);
+box-shadow:0 0 50px rgba(59,130,246,.15);
 }
 
 .stat h2{
@@ -254,34 +355,38 @@ margin-bottom:10px;
 color:#94a3b8;
 }
 
-/* LIVE */
+/* ========================= */
+/* LIVE STATUS */
+/* ========================= */
 
 .live{
 display:flex;
 align-items:center;
 gap:10px;
-font-weight:700;
 color:#22c55e;
+font-weight:700;
 }
 
 .dot{
 width:12px;
 height:12px;
-border-radius:50%;
 background:#22c55e;
+border-radius:50%;
 box-shadow:0 0 20px #22c55e;
-animation:pulse 1s infinite;
+animation:livePulse 1s infinite;
 }
 
-@keyframes pulse{
+@keyframes livePulse{
 0%{transform:scale(1);}
 50%{transform:scale(1.4);}
 100%{transform:scale(1);}
 }
 
-/* RIGHT PANEL */
+/* ========================= */
+/* RIGHT SIDE */
+/* ========================= */
 
-.right-panel{
+.side{
 display:flex;
 flex-direction:column;
 gap:25px;
@@ -290,55 +395,136 @@ gap:25px;
 .mini-card{
 background:rgba(255,255,255,.03);
 border:1px solid rgba(255,255,255,.06);
-padding:25px;
-border-radius:24px;
+padding:30px;
+border-radius:26px;
 transition:.4s;
 }
 
 .mini-card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 40px rgba(59,130,246,.2);
+transform:translateY(-10px);
+border-color:#3b82f6;
+box-shadow:0 0 60px rgba(59,130,246,.15);
 }
 
 .mini-card h3{
-font-size:24px;
+font-size:26px;
 margin-bottom:15px;
 }
 
 .mini-card p{
 color:#94a3b8;
-line-height:1.7;
+line-height:1.8;
 }
 
+/* ========================= */
+/* UPDATES SECTION */
+/* ========================= */
+
+.section{
+padding:80px 50px;
+}
+
+.section-title{
+font-size:58px;
+font-weight:900;
+margin-bottom:40px;
+text-align:center;
+}
+
+.section-title span{
+color:#3b82f6;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+max-width:1600px;
+margin:auto;
+}
+
+.card{
+background:rgba(15,23,42,.6);
+border:1px solid rgba(255,255,255,.08);
+border-radius:30px;
+padding:35px;
+transition:.5s;
+backdrop-filter:blur(20px);
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.03);
+border-color:#3b82f6;
+box-shadow:0 0 70px rgba(59,130,246,.15);
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.card p{
+color:#94a3b8;
+line-height:1.9;
+}
+
+/* ========================= */
 /* FOOTER */
+/* ========================= */
 
 footer{
-padding:50px;
+padding:60px;
 text-align:center;
 color:#64748b;
 font-weight:600;
+font-size:18px;
 }
 
+/* ========================= */
 /* RESPONSIVE */
+/* ========================= */
 
-@media(max-width:1100px){
+@media(max-width:1200px){
 
-.hero-content{
+.hero-container{
 grid-template-columns:1fr;
 }
 
 .title{
-font-size:50px;
+font-size:60px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
+<!-- LOADER -->
+
+<div id="loader">
+
+<div class="loader-logo">
+RBX<span>Protocol</span>
+</div>
+
+<div class="loader-bar">
+<div class="loader-progress"></div>
+</div>
+
+<div class="loading-text">
+INITIALIZING SECURITY SYSTEM...
+</div>
+
+</div>
+
+<!-- PARTICLES -->
+
 <canvas id="particles"></canvas>
+
+<!-- NAV -->
 
 <nav>
 
@@ -349,32 +535,34 @@ RBX<span>Protocol</span>
 <div class="nav-links">
 <a href="#">Inicio</a>
 <a href="#">Seguridad</a>
-<a href="#">Noticias</a>
 <a href="#">Moderadores</a>
+<a href="#">Noticias</a>
 <a href="#">Estado</a>
 </div>
 
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-container">
 
 <div class="panel">
 
 <div class="badge">
-⚡ SISTEMA OFICIAL EN TIEMPO REAL
+⚡ MONITOREO GLOBAL EN TIEMPO REAL
 </div>
 
 <div class="title">
 RBX<span>Protocol</span><br>
-Security System
+Security Center
 </div>
 
-<p class="desc">
-Centro avanzado de monitoreo, seguridad y protección global inspirado en plataformas modernas de ingeniería y desarrollo.
-Todo el sistema funciona en tiempo real con análisis inteligente y monitoreo activo.
-</p>
+<div class="description">
+Centro avanzado de monitoreo y seguridad inspirado en plataformas modernas.
+Sistema visual ultra dinámico con estadísticas globales, monitoreo inteligente y protección en tiempo real.
+</div>
 
 <div class="buttons">
 
@@ -401,47 +589,106 @@ Postular Moderador
 </div>
 
 <div class="stat">
+
 <div class="live">
 <div class="dot"></div>
 Sistema Operativo
 </div>
+
 <p style="margin-top:10px;">
 Protección activa
 </p>
+
 </div>
 
 <div class="stat">
-<h2 id="mods">5,421</h2>
-<p>Moderadores</p>
+<h2 id="moderators">5,421</h2>
+<p>Moderadores Online</p>
 </div>
 
 </div>
 
 </div>
 
-<div class="right-panel">
+<div class="side">
 
 <div class="mini-card">
 <h3>🚀 Actualización 2026</h3>
 <p>
-Nuevo sistema anti-exploit, IA avanzada y mejoras de rendimiento global.
+Nuevo motor gráfico, IA avanzada y mejoras masivas de rendimiento.
 </p>
 </div>
 
 <div class="mini-card">
 <h3>🛡 Seguridad HWID</h3>
 <p>
-Detección avanzada de actividad sospechosa y protección inteligente.
+Protección avanzada contra exploits, spoofers y actividad sospechosa.
 </p>
 </div>
 
 <div class="mini-card">
 <h3>🌎 Estado Mundial</h3>
 <p>
-Todos los sistemas funcionando correctamente en tiempo real.
+Todos los sistemas funcionando correctamente y sincronizados.
 </p>
 </div>
 
+</div>
+
+</div>
+
+</section>
+
+<!-- SECTION -->
+
+<section class="section">
+
+<div class="section-title">
+Actualizaciones <span>2026</span>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌐 Roblox Cloud</h3>
+<p>
+Servidores optimizados y nueva arquitectura global.
+</p>
+</div>
+
+<div class="card">
+<h3>🎤 Chat de Voz</h3>
+<p>
+Mejor calidad de audio y seguridad avanzada.
+</p>
+</div>
+
+<div class="card">
+<h3>🤖 IA Inteligente</h3>
+<p>
+Moderación automática y detección de amenazas.
+</p>
+</div>
+
+<div class="card">
+<h3>⚡ Rendimiento</h3>
+<p>
+Mejor FPS y estabilidad en todas las plataformas.
+</p>
+</div>
+
+<div class="card">
+<h3>🛒 Marketplace 2.0</h3>
+<p>
+Nueva experiencia visual y herramientas avanzadas.
+</p>
+</div>
+
+<div class="card">
+<h3>🎮 Cross Platform</h3>
+<p>
+Compatibilidad mejorada entre móvil, PC y consola.
+</p>
 </div>
 
 </div>
@@ -454,24 +701,46 @@ Editor Oficial — Danilo Isaías Cuevas Ibarra
 
 <script>
 
-/* NUMEROS EN VIVO */
+/* ========================= */
+/* LOADING SCREEN */
+/* ========================= */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.opacity="0";
+
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},1000);
+
+},5000);
+
+});
+
+/* ========================= */
+/* LIVE STATS */
+/* ========================= */
 
 function updateStats(){
 
 document.getElementById("players").innerText =
-(24 + Math.random()).toFixed(1) + "M";
+(24 + Math.random()).toFixed(1)+"M";
 
 document.getElementById("servers").innerText =
-(1 + Math.random()).toFixed(1) + "M";
+(1 + Math.random()).toFixed(1)+"M";
 
-document.getElementById("mods").innerText =
-Math.floor(5000 + Math.random()*700);
+document.getElementById("moderators").innerText =
+Math.floor(5000 + Math.random()*1000);
 
 }
 
 setInterval(updateStats,2000);
 
-/* PARTICULAS */
+/* ========================= */
+/* PARTICLES */
+/* ========================= */
 
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
@@ -481,14 +750,16 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 
-for(let i=0;i<120;i++){
+for(let i=0;i<180;i++){
 
 particles.push({
+
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-r:Math.random()*2,
-dx:(Math.random()-.5)*0.5,
-dy:(Math.random()-.5)*0.5
+size:Math.random()*2,
+speedX:(Math.random()-0.5)*0.5,
+speedY:(Math.random()-0.5)*0.5
+
 });
 
 }
@@ -500,15 +771,15 @@ ctx.clearRect(0,0,canvas.width,canvas.height);
 particles.forEach(p=>{
 
 ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
 ctx.fillStyle="rgba(59,130,246,.8)";
 ctx.fill();
 
-p.x += p.dx;
-p.y += p.dy;
+p.x += p.speedX;
+p.y += p.speedY;
 
-if(p.x<0||p.x>canvas.width) p.dx*=-1;
-if(p.y<0||p.y>canvas.height) p.dy*=-1;
+if(p.x<0 || p.x>canvas.width) p.speedX*=-1;
+if(p.y<0 || p.y>canvas.height) p.speedY*=-1;
 
 });
 
@@ -517,6 +788,13 @@ requestAnimationFrame(animate);
 }
 
 animate();
+
+window.addEventListener("resize",()=>{
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+});
 
 </script>
 
