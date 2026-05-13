@@ -1,33 +1,359 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RBXProtocol | Actualizaciones de Roblox</title>
-    <style>
-        body { background-color: #0b0e14; color: #ffffff; font-family: sans-serif; margin: 0; padding: 20px; }
-        header { border-bottom: 2px solid #ff3b30; padding-bottom: 10px; margin-bottom: 20px; }
-        h1 { color: #ff3b30; margin: 0; font-size: 28px; }
-        .badge { background-color: #ff3b30; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
-        .news-card { background-color: #151a24; border: 1px solid #242c3d; border-radius: 8px; padding: 20px; margin-bottom: 15px; }
-        .date { color: #8a99ad; font-size: 14px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RBXProtocol Security</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#05070d;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+height:80px;
+background:#0a0f1c;
+border-bottom:1px solid #1f2937;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 40px;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:white;
+}
+
+.logo span{
+color:#3b82f6;
+}
+
+.nav{
+display:flex;
+gap:20px;
+}
+
+.nav a{
+color:#9ca3af;
+text-decoration:none;
+transition:.3s;
+}
+
+.nav a:hover{
+color:white;
+}
+
+.hero{
+padding:60px;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.card{
+background:#0b1220;
+border:1px solid #1e293b;
+border-radius:20px;
+padding:30px;
+box-shadow:0 0 30px rgba(0,0,0,.5);
+}
+
+.title{
+font-size:52px;
+font-weight:800;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.blue{
+color:#3b82f6;
+}
+
+.desc{
+color:#9ca3af;
+line-height:1.7;
+margin-bottom:30px;
+}
+
+.btn{
+background:#2563eb;
+padding:14px 25px;
+border:none;
+border-radius:12px;
+color:white;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+margin-top:20px;
+}
+
+.stat{
+background:#0f172a;
+padding:25px;
+border-radius:16px;
+border:1px solid #1e293b;
+}
+
+.stat h2{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.live{
+color:#22c55e;
+font-weight:700;
+}
+
+.section{
+padding:40px 60px;
+}
+
+.section-title{
+font-size:38px;
+font-weight:800;
+margin-bottom:30px;
+}
+
+.updates{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.update-card{
+background:#0b1220;
+border:1px solid #1e293b;
+padding:25px;
+border-radius:18px;
+transition:.3s;
+}
+
+.update-card:hover{
+transform:translateY(-5px);
+border-color:#2563eb;
+}
+
+.update-card h3{
+margin-bottom:15px;
+font-size:22px;
+}
+
+.update-card p{
+color:#9ca3af;
+line-height:1.6;
+}
+
+.footer{
+padding:40px;
+text-align:center;
+color:#6b7280;
+}
+
+.live-dot{
+width:10px;
+height:10px;
+background:#22c55e;
+border-radius:50%;
+display:inline-block;
+animation:pulse 1s infinite;
+margin-right:8px;
+}
+
+@keyframes pulse{
+0%{opacity:1;}
+50%{opacity:.3;}
+100%{opacity:1;}
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>RBXPROTOCOL</h1>
-        <p>Centro de Monitoreo Global y Actualizaciones de Roblox</p>
-    </header>
+<header>
 
-    <main>
-        <div class="news-card">
-            <span class="badge">CRÍTICO</span>
-            <h2>Implementación del Protocolo de Red Avanzado (IP/HWID Ban)</h2>
-            <p class="date">Publicado: 12 de Mayo de 2026</p>
-            <p>Se confirma el despliegue global del sistema de rastreo de hardware y red. Las sanciones críticas ahora restringirán por completo la conexión WiFi del hogar afectado.</p>
-        </div>
-    </main>
+<div class="logo">
+RBX<span>Protocol</span>
+</div>
+
+<div class="nav">
+<a href="#">Inicio</a>
+<a href="#">Seguridad</a>
+<a href="#">Actualizaciones</a>
+<a href="#">Moderación</a>
+<a href="#">Estado</a>
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="card">
+
+<div class="title">
+Sistema de Seguridad <span class="blue">RBXProtocol</span>
+</div>
+
+<p class="desc">
+Panel oficial de monitoreo, seguridad y actualizaciones en tiempo real.
+Infraestructura avanzada inspirada en plataformas modernas de desarrollo.
+</p>
+
+<button class="btn">
+Ver Estado Global
+</button>
+
+<div class="stats">
+
+<div class="stat">
+<h2 id="players">24.7M</h2>
+<p>Usuarios activos</p>
+</div>
+
+<div class="stat">
+<h2 id="servers">1.2M</h2>
+<p>Servidores activos</p>
+</div>
+
+<div class="stat">
+<h2 class="live">
+<span class="live-dot"></span>
+EN LÍNEA
+</h2>
+<p>Sistema operativo</p>
+</div>
+
+<div class="stat">
+<h2 id="moderators">5,421</h2>
+<p>Moderadores activos</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2 style="margin-bottom:20px;">
+Comunicados Oficiales
+</h2>
+
+<p class="desc">
+✔ Nuevo sistema anti-exploit 2026<br><br>
+✔ Seguridad HWID avanzada<br><br>
+✔ Protección global por regiones<br><br>
+✔ Nuevas herramientas para moderadores<br><br>
+✔ Centro de monitoreo en tiempo real
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-title">
+Actualizaciones 2026
+</div>
+
+<div class="updates">
+
+<div class="update-card">
+<h3>Nuevo Chat Global</h3>
+<p>Sistema de voz mejorado y protección avanzada.</p>
+</div>
+
+<div class="update-card">
+<h3>IA para Moderación</h3>
+<p>Detección automática de exploits y actividad sospechosa.</p>
+</div>
+
+<div class="update-card">
+<h3>RBX Cloud</h3>
+<p>Servidores optimizados y menor latencia global.</p>
+</div>
+
+<div class="update-card">
+<h3>Marketplace 2.0</h3>
+<p>Nuevo sistema visual para accesorios y UGC.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2 style="margin-bottom:20px;">
+Postula al equipo
+</h2>
+
+<p class="desc">
+¿Quieres ser moderador o administrador?
+Únete al sistema oficial RBXProtocol.
+</p>
+
+<button class="btn">
+Postular Ahora
+</button>
+
+</div>
+
+</section>
+
+<div class="footer">
+Editor Oficial — Danilo Isaías Cuevas Ibarra
+</div>
+
+<script>
+
+function randomStats(){
+
+document.getElementById("players").innerText =
+(24 + Math.random()).toFixed(1) + "M";
+
+document.getElementById("servers").innerText =
+(1 + Math.random()).toFixed(1) + "M";
+
+document.getElementById("moderators").innerText =
+Math.floor(5000 + Math.random()*500);
+
+}
+
+setInterval(randomStats,3000);
+
+</script>
 
 </body>
 </html>
