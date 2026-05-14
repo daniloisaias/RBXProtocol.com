@@ -1,209 +1,951 @@
-<!-- ========================================= -->
-<!-- RBXProtocol Ultra Epic Multi Page System -->
-<!-- Editor Oficial: Danilo Isaías Cuevas Ibarra -->
-<!-- ========================================= -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RBXProtocol Ultimate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ========================================= */
+/* RBXPROTOCOL ULTIMATE */
+/* ========================================= */
+
+:root{
+
+--main:#2563eb;
+--bg:#020617;
+--card:#0f172a;
+--text:#ffffff;
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:
+radial-gradient(circle at top,
+#0f172a,
+#020617);
+
+color:white;
+overflow-x:hidden;
+cursor:none;
+
+}
+
+/* ========================================= */
+/* CURSOR */
+/* ========================================= */
+
+.cursor{
+
+position:fixed;
+width:24px;
+height:24px;
+border:2px solid var(--main);
+border-radius:50%;
+pointer-events:none;
+transform:translate(-50%,-50%);
+box-shadow:
+0 0 15px var(--main),
+0 0 40px var(--main);
+
+z-index:999999;
+
+}
+
+/* ========================================= */
+/* LOADER */
+/* ========================================= */
+
+.loader{
+
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999999;
+
+}
+
+.loader h1{
+
+font-size:80px;
+font-weight:900;
+letter-spacing:5px;
+
+}
+
+.loader h1 span{
+
+color:var(--main);
+text-shadow:0 0 40px var(--main);
+
+}
+
+.loadingbar{
+
+width:420px;
+height:8px;
+background:#111827;
+border-radius:999px;
+overflow:hidden;
+margin-top:30px;
+
+}
+
+.loadingbar span{
+
+display:block;
+height:100%;
+width:0%;
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#60a5fa
+);
+
+animation:load 5s linear forwards;
+
+}
+
+@keyframes load{
+
+to{
+
+width:100%;
+
+}
+
+}
+
+/* ========================================= */
+/* PARTICLES */
+/* ========================================= */
+
+canvas{
+
+position:fixed;
+inset:0;
+z-index:-1;
+
+}
+
+/* ========================================= */
+/* NAVBAR */
+/* ========================================= */
+
+nav{
+
+position:fixed;
+top:0;
+width:100%;
+height:90px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 50px;
+
+background:
+rgba(2,6,23,.7);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,.05);
+
+z-index:999;
+
+}
+
+.logo{
+
+font-size:42px;
+font-weight:900;
+
+}
+
+.logo span{
+
+color:var(--main);
+text-shadow:0 0 35px var(--main);
+
+}
+
+.menu{
+
+display:flex;
+gap:35px;
+
+}
+
+.menu a{
+
+text-decoration:none;
+color:#94a3b8;
+font-weight:700;
+transition:.4s;
+
+}
+
+.menu a:hover{
+
+color:white;
+transform:translateY(-4px);
+
+}
+
+/* ========================================= */
+/* SETTINGS */
+/* ========================================= */
+
+.settingsBtn{
+
+width:50px;
+height:50px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,.05);
+color:white;
+font-size:22px;
+cursor:pointer;
+
+}
+
+.settings{
+
+position:fixed;
+right:-360px;
+top:100px;
+width:340px;
+padding:30px;
+
+background:
+rgba(15,23,42,.95);
+
+backdrop-filter:blur(25px);
+
+border-left:
+1px solid rgba(255,255,255,.05);
+
+transition:.5s;
+
+z-index:99999;
+
+border-radius:
+25px 0 0 25px;
+
+}
+
+.settings.active{
+
+right:0;
+
+}
+
+.settings h2{
+
+margin-bottom:25px;
+
+}
+
+.settings label{
+
+display:block;
+margin-bottom:20px;
+
+}
+
+.settings input[type=color]{
+
+width:100%;
+height:50px;
+margin-top:10px;
+border:none;
+
+}
+
+.save{
+
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#3b82f6
+);
+
+color:white;
+font-weight:800;
+cursor:pointer;
+margin-top:20px;
+
+}
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.hero{
+
+min-height:100vh;
+
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:35px;
+
+padding:
+150px 50px 80px;
+
+}
+
+.panel{
+
+background:
+rgba(15,23,42,.75);
+
+backdrop-filter:blur(25px);
+
+border:
+1px solid rgba(255,255,255,.05);
+
+border-radius:35px;
+
+padding:40px;
+
+box-shadow:
+0 0 120px rgba(37,99,235,.08);
+
+transition:.5s;
+
+}
+
+.panel:hover{
+
+transform:translateY(-8px);
+
+}
+
+.badge{
+
+display:inline-block;
+padding:12px 24px;
+
+border-radius:999px;
+
+background:
+rgba(37,99,235,.15);
+
+border:
+1px solid rgba(37,99,235,.4);
+
+font-weight:800;
+
+margin-bottom:30px;
+
+}
+
+.hero h1{
+
+font-size:90px;
+line-height:.95;
+font-weight:900;
+margin-bottom:30px;
+
+}
+
+.hero h1 span{
+
+color:var(--main);
+text-shadow:
+0 0 40px var(--main);
+
+}
+
+.hero p{
+
+font-size:18px;
+line-height:1.9;
+color:#94a3b8;
+max-width:750px;
+
+}
+
+.buttons{
+
+display:flex;
+gap:20px;
+margin-top:40px;
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:18px 35px;
+border:none;
+border-radius:20px;
+font-weight:800;
+font-size:16px;
+cursor:pointer;
+transition:.4s;
+
+}
+
+.primary{
+
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#3b82f6
+);
+
+color:white;
+
+box-shadow:
+0 0 50px rgba(37,99,235,.4);
+
+}
+
+.primary:hover{
+
+transform:
+translateY(-5px)
+scale(1.05);
+
+}
+
+.secondary{
+
+background:
+rgba(255,255,255,.05);
+
+color:white;
+
+}
+
+.secondary:hover{
+
+transform:translateY(-5px);
+
+}
+
+/* ========================================= */
+/* STATS */
+/* ========================================= */
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+margin-top:45px;
+
+}
+
+.stat{
+
+padding:30px;
+border-radius:25px;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,255,255,.05);
+
+transition:.5s;
+
+}
+
+.stat:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+0 0 70px rgba(37,99,235,.15);
+
+}
+
+.stat h2{
+
+font-size:45px;
+margin-bottom:10px;
+
+}
+
+/* ========================================= */
+/* PROFILE */
+/* ========================================= */
+
+.profile{
+
+margin-top:35px;
+
+display:flex;
+align-items:center;
+gap:25px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,.03);
+
+}
+
+.profile img{
+
+width:110px;
+height:110px;
+border-radius:25px;
+
+box-shadow:
+0 0 40px rgba(37,99,235,.5);
+
+}
+
+.profile h3{
+
+font-size:28px;
+
+}
+
+.profile p{
+
+color:#94a3b8;
+margin-top:5px;
+
+}
+
+/* ========================================= */
+/* TWITTER FEED */
+/* ========================================= */
+
+.feed{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.post{
+
+padding:25px;
+border-radius:25px;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,255,255,.05);
+
+transition:.5s;
+
+}
+
+.post:hover{
+
+transform:
+translateY(-8px);
+
+box-shadow:
+0 0 50px rgba(37,99,235,.1);
+
+}
+
+.post h3{
+
+margin-bottom:15px;
+
+}
+
+.post p{
+
+color:#94a3b8;
+line-height:1.8;
+
+}
+
+/* ========================================= */
+/* UPDATES */
+/* ========================================= */
+
+.updates{
+
+padding:
+0 50px 80px;
+
+}
+
+.updates h2{
+
+font-size:70px;
+margin-bottom:40px;
+font-weight:900;
+
+}
+
+.updates h2 span{
+
+color:var(--main);
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+padding:35px;
+border-radius:30px;
+
+background:
+rgba(15,23,42,.75);
+
+border:
+1px solid rgba(255,255,255,.05);
+
+transition:.5s;
+
+}
+
+.card:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 0 80px rgba(37,99,235,.15);
+
+}
+
+.card h3{
+
+font-size:28px;
+margin-bottom:15px;
+
+}
+
+.card p{
+
+color:#94a3b8;
+line-height:1.8;
+
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
+footer{
+
+padding:60px;
+text-align:center;
+color:#64748b;
+font-weight:700;
+
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width:1200px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+}
+
+.hero h1{
+
+font-size:55px;
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
 
 <!-- ========================================= -->
-<!-- INDEX.HTML -->
+<!-- LOADER -->
+<!-- ========================================= -->
+
+<div class="loader">
+
+<h1>
+RBX<span>Protocol</span>
+</h1>
+
+<div class="loadingbar">
+<span></span>
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- CURSOR -->
+<!-- ========================================= -->
+
+<div class="cursor"></div>
+
+<!-- ========================================= -->
+<!-- PARTICLES -->
+<!-- ========================================= -->
+
+<canvas id="particles"></canvas>
+
+<!-- ========================================= -->
+<!-- NAVBAR -->
 <!-- ========================================= -->
 
 <nav>
 
-<a href="index.html">Inicio</a>
-<a href="security.html">Seguridad</a>
-<a href="twitter.html">Twitter</a>
-<a href="moderators.html">Moderadores</a>
-<a href="status.html">Estado</a>
-<a href="creatorhub.html">Creator Hub</a>
-<a href="editor.html">Editor</a>
+<div class="logo">
+RBX<span>Protocol</span>
+</div>
+
+<div class="menu">
+
+<a href="#">Inicio</a>
+<a href="#">Seguridad</a>
+<a href="#">Twitter</a>
+<a href="#">Moderadores</a>
+<a href="#">Creator Hub</a>
+
+</div>
+
+<button class="settingsBtn" id="settingsBtn">
+⚙
+</button>
 
 </nav>
 
 <!-- ========================================= -->
-<!-- SECURITY.HTML -->
+<!-- SETTINGS -->
 <!-- ========================================= -->
 
-<section class="security-page">
+<div class="settings" id="settingsPanel">
 
-<h1>Sistema Global de Seguridad</h1>
+<h2>
+Configuración
+</h2>
 
-<div class="security-grid">
+<label>
 
-<div class="security-card">
-<h2>Restricción por País</h2>
-<p>
-Sistema global activado.
-</p>
-</div>
+<input type="checkbox" id="particlesToggle" checked>
 
-<div class="security-card">
-<h2>Protección HWID</h2>
-<p>
-Protección avanzada anti exploit.
-</p>
-</div>
+ Partículas
 
-<div class="security-card">
-<h2>Logs en Tiempo Real</h2>
-<p>
-Monitoreo activo global.
-</p>
-</div>
+</label>
 
-</div>
+<label>
 
-</section>
+<input type="checkbox" id="animationsToggle" checked>
 
-<!-- ========================================= -->
-<!-- TWITTER.HTML -->
-<!-- ========================================= -->
+ Animaciones
 
-<section class="twitter-page">
+</label>
 
-<h1>Twitter Oficial</h1>
+<label>
 
-<div class="tweet">
+Tema Principal
 
-<h2>Roblox @Roblox</h2>
+<input type="color"
+id="mainColor"
+value="#2563eb">
 
-<p>
-Grandes actualizaciones vienen en camino.
-</p>
+</label>
 
-</div>
+<button class="save" id="saveBtn">
 
-<div class="tweet">
+Guardar Configuración
 
-<h2>Roblox Security</h2>
-
-<p>
-Nuevo sistema anti exploit desplegado globalmente.
-</p>
-
-</div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- MODERATORS.HTML -->
-<!-- ========================================= -->
-
-<section class="mods-page">
-
-<h1>Postula al Equipo Roblox</h1>
-
-<div class="mod-card">
-
-<h2>Moderador</h2>
-
-<p>
-Ayuda a proteger la comunidad.
-</p>
-
-<button>
-Postular
 </button>
 
 </div>
 
-<div class="mod-card">
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
 
-<h2>Administrador</h2>
+<section class="hero">
+
+<div class="panel">
+
+<div class="badge">
+⚡ DASHBOARD FUTURISTA
+</div>
+
+<h1>
+
+RBX<span>Protocol</span><br>
+Ultimate System
+
+</h1>
 
 <p>
-Gestiona herramientas y sistemas.
+
+Proyecto visual futurista inspirado en interfaces gaming modernas,
+dashboards avanzados y paneles cinematográficos.
+
 </p>
 
-<button>
-Postular
+<div class="buttons">
+
+<button class="btn primary">
+
+Explorar
+
+</button>
+
+<button class="btn secondary">
+
+Ver Perfil
+
 </button>
 
 </div>
 
-</section>
+<div class="stats">
 
-<!-- ========================================= -->
-<!-- STATUS.HTML -->
-<!-- ========================================= -->
-
-<section class="status-page">
-
-<h1>Estado Global</h1>
-
-<div class="status-grid">
-
-<div class="status-card">
-<h2>Usuarios Online</h2>
-<h3>78.4M</h3>
+<div class="stat">
+<h2 id="users">78.4M</h2>
+<p>Usuarios</p>
 </div>
 
-<div class="status-card">
-<h2>Servidores</h2>
-<h3>2.7M</h3>
+<div class="stat">
+<h2 id="servers">2.7M</h2>
+<p>Experiencias</p>
 </div>
 
-<div class="status-card">
-<h2>Países</h2>
-<h3>180+</h3>
+<div class="stat">
+<h2 id="countries">180+</h2>
+<p>Países</p>
+</div>
+
+<div class="stat">
+<h2 id="visits">543.8B</h2>
+<p>Visitas</p>
 </div>
 
 </div>
 
-</section>
-
-<!-- ========================================= -->
-<!-- CREATORHUB.HTML -->
-<!-- ========================================= -->
-
-<section class="creator-page">
-
-<h1>Creator Hub</h1>
-
-<div class="creator-grid">
-
-<div class="creator-card">
-<h2>Analytics</h2>
-</div>
-
-<div class="creator-card">
-<h2>Marketplace</h2>
-</div>
-
-<div class="creator-card">
-<h2>Assets</h2>
-</div>
-
-<div class="creator-card">
-<h2>IA Generativa</h2>
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- EDITOR.HTML -->
-<!-- ========================================= -->
-
-<section class="editor-page">
-
-<h1>Editor Oficial</h1>
-
-<div class="editor-profile">
+<div class="profile">
 
 <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-310C1E8A14F99B6F1B0D3C46D2D15E4B-Png/150/150/AvatarHeadshot/Png/noFilter">
 
 <div>
 
-<h2>Danilo Isaías Cuevas Ibarra</h2>
+<h3>
+Danilo Isaías Cuevas Ibarra
+</h3>
 
 <p>
-Editor Oficial Roblox
+Editor visual del proyecto
 </p>
 
-<a href="https://www.roblox.com/es/users/9743145802/profile">
-Ver Perfil
-</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="feed">
+
+<div class="post">
+
+<h3>
+Roblox News
+</h3>
+
+<p>
+Nuevas herramientas visuales y mejoras gráficas.
+</p>
+
+</div>
+
+<div class="post">
+
+<h3>
+Creator Hub
+</h3>
+
+<p>
+Actualización visual inspirada en estudios AAA.
+</p>
+
+</div>
+
+<div class="post">
+
+<h3>
+Engine Update
+</h3>
+
+<p>
+Sistema gráfico optimizado y efectos smooth.
+</p>
+
+</div>
+
+<div class="post">
+
+<h3>
+Community
+</h3>
+
+<p>
+Paneles futuristas y nuevas interfaces premium.
+</p>
+
+</div>
 
 </div>
 
@@ -212,156 +954,160 @@ Ver Perfil
 </section>
 
 <!-- ========================================= -->
-<!-- CSS ÉPICO -->
+<!-- UPDATES -->
 <!-- ========================================= -->
 
-<style>
+<section class="updates">
 
-body{
-background:#020617;
-color:white;
-font-family:Inter,sans-serif;
-overflow-x:hidden;
-}
+<h2>
 
-nav{
-display:flex;
-gap:25px;
-padding:25px;
-background:rgba(15,23,42,.8);
-backdrop-filter:blur(20px);
-position:sticky;
-top:0;
-z-index:999;
-}
+Actualizaciones
+<span>Visuales</span>
 
-nav a{
-color:#94a3b8;
-text-decoration:none;
-font-weight:700;
-transition:.3s;
-}
+</h2>
 
-nav a:hover{
-color:#3b82f6;
-text-shadow:0 0 20px #3b82f6;
-}
+<div class="grid">
 
-section{
-padding:80px 40px;
-}
+<div class="card">
 
-h1{
-font-size:70px;
-margin-bottom:40px;
-font-weight:900;
-}
+<h3>
+🌎 Dashboard Global
+</h3>
 
-.security-grid,
-.status-grid,
-.creator-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-}
+<p>
+Panel visual futurista con estadísticas dinámicas.
+</p>
 
-.security-card,
-.status-card,
-.creator-card,
-.mod-card,
-.tweet{
-background:rgba(15,23,42,.7);
-border:1px solid rgba(255,255,255,.05);
-padding:35px;
-border-radius:30px;
-backdrop-filter:blur(20px);
-transition:.5s;
-box-shadow:0 0 50px rgba(37,99,235,.08);
-}
+</div>
 
-.security-card:hover,
-.status-card:hover,
-.creator-card:hover,
-.mod-card:hover,
-.tweet:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 0 80px rgba(37,99,235,.2);
-border-color:#3b82f6;
-}
+<div class="card">
 
-button{
-padding:15px 30px;
-border:none;
-border-radius:18px;
-background:linear-gradient(90deg,#2563eb,#3b82f6);
-color:white;
-font-weight:800;
-cursor:pointer;
-margin-top:20px;
-transition:.4s;
-}
+<h3>
+⚡ Rendimiento
+</h3>
 
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 50px rgba(37,99,235,.5);
-}
+<p>
+Sistema optimizado y animaciones smooth.
+</p>
 
-.editor-profile{
-display:flex;
-align-items:center;
-gap:25px;
-background:rgba(15,23,42,.7);
-padding:35px;
-border-radius:30px;
-}
+</div>
 
-.editor-profile img{
-width:120px;
-height:120px;
-border-radius:25px;
-box-shadow:0 0 40px rgba(37,99,235,.5);
-}
+<div class="card">
 
-.editor-profile a{
-display:inline-block;
-margin-top:15px;
-color:#3b82f6;
-text-decoration:none;
-font-weight:700;
-}
+<h3>
+🎮 Creator Hub
+</h3>
 
-</style>
+<p>
+Herramientas inspiradas en estudios gaming.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🤖 IA Visual
+</h3>
+
+<p>
+Automatización visual cinematográfica.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🛡 Seguridad
+</h3>
+
+<p>
+Protección avanzada y sistemas visuales.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+☁ Cloud System
+</h3>
+
+<p>
+Infraestructura visual estilo corporativo.
+</p>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- ========================================= -->
-<!-- JAVASCRIPT ÉPICO -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+RBXProtocol — Diseño Futurista Conceptual
+
+</footer>
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
 <!-- ========================================= -->
 
 <script>
 
+/* ========================================= */
+/* LOADER */
+/* ========================================= */
+
+setTimeout(()=>{
+
+document.querySelector('.loader')
+.style.display='none';
+
+},5000);
+
+/* ========================================= */
+/* CURSOR */
+/* ========================================= */
+
+const cursor=
+document.querySelector('.cursor');
+
+window.addEventListener('mousemove',e=>{
+
+cursor.style.left=e.clientX+'px';
+cursor.style.top=e.clientY+'px';
+
+});
+
+/* ========================================= */
 /* PARTICLES */
+/* ========================================= */
 
-const canvas=document.createElement('canvas');
-document.body.appendChild(canvas);
+const canvas=
+document.getElementById('particles');
 
-canvas.style.position='fixed';
-canvas.style.top='0';
-canvas.style.left='0';
-canvas.style.zIndex='-1';
-
-const ctx=canvas.getContext('2d');
+const ctx=
+canvas.getContext('2d');
 
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
 
-for(let i=0;i<200;i++){
+for(let i=0;i<180;i++){
 
 particles.push({
 
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
 r:Math.random()*2,
+
 dx:(Math.random()-.5)*0.5,
 dy:(Math.random()-.5)*0.5
 
@@ -371,7 +1117,12 @@ dy:(Math.random()-.5)*0.5
 
 function animate(){
 
-ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
 
 particles.forEach(p=>{
 
@@ -385,14 +1136,19 @@ p.r,
 Math.PI*2
 );
 
-ctx.fillStyle='rgba(59,130,246,.8)';
+ctx.fillStyle=
+'rgba(59,130,246,.8)';
+
 ctx.fill();
 
 p.x+=p.dx;
 p.y+=p.dy;
 
-if(p.x<0||p.x>canvas.width)p.dx*=-1;
-if(p.y<0||p.y>canvas.height)p.dy*=-1;
+if(p.x<0||p.x>canvas.width)
+p.dx*=-1;
+
+if(p.y<0||p.y>canvas.height)
+p.dy*=-1;
 
 });
 
@@ -402,24 +1158,116 @@ requestAnimationFrame(animate);
 
 animate();
 
+/* ========================================= */
 /* LIVE STATS */
+/* ========================================= */
 
-setInterval(()=>{
+function updateStats(){
 
-document.querySelectorAll('.status-card h3')
-.forEach(el=>{
+document.getElementById('users')
+.innerText=
+(70+Math.random()*10).toFixed(1)+'M';
 
-if(el.innerText.includes('M')){
-
-let random=
-(70+Math.random()*10).toFixed(1);
-
-el.innerText=random+'M';
+document.getElementById('servers')
+.innerText=
+(2+Math.random()).toFixed(1)+'M';
 
 }
 
+setInterval(updateStats,2000);
+
+/* ========================================= */
+/* SETTINGS */
+/* ========================================= */
+
+const settingsBtn=
+document.getElementById('settingsBtn');
+
+const settingsPanel=
+document.getElementById('settingsPanel');
+
+settingsBtn.onclick=()=>{
+
+settingsPanel.classList.toggle('active');
+
+};
+
+function applyConfig(config){
+
+if(!config.particles){
+
+canvas.style.display='none';
+
+}else{
+
+canvas.style.display='block';
+
+}
+
+if(config.color){
+
+document.documentElement
+.style
+.setProperty('--main',config.color);
+
+}
+
+}
+
+document.getElementById('saveBtn')
+.onclick=()=>{
+
+const config={
+
+particles:
+document.getElementById(
+'particlesToggle'
+).checked,
+
+animations:
+document.getElementById(
+'animationsToggle'
+).checked,
+
+color:
+document.getElementById(
+'mainColor'
+).value
+
+};
+
+localStorage.setItem(
+'rbx_config',
+JSON.stringify(config)
+);
+
+applyConfig(config);
+
+alert('Configuración guardada');
+
+};
+
+const saved=
+JSON.parse(
+localStorage.getItem(
+'rbx_config'
+)
+);
+
+if(saved){
+
+applyConfig(saved);
+
+}
+
+window.addEventListener('resize',()=>{
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
 });
 
-},2000);
-
 </script>
+
+</body>
+</html>
