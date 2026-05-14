@@ -5,15 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RBXProtocol Ultimate</title>
+<title>RBXProtocol Mega Interface</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* ========================================= */
-/* RBXPROTOCOL ULTIMATE */
-/* ========================================= */
+/* ================================================= */
+/* RBXPROTOCOL MEGA INTERFACE */
+/* ================================================= */
 
 :root{
 
@@ -21,8 +21,13 @@
 --bg:#020617;
 --card:#0f172a;
 --text:#ffffff;
+--glow:0 0 40px rgba(37,99,235,.5);
 
 }
+
+/* ================================================= */
+/* RESET */
+/* ================================================= */
 
 *{
 
@@ -52,66 +57,96 @@ cursor:none;
 
 }
 
-/* ========================================= */
+/* ================================================= */
 /* CURSOR */
-/* ========================================= */
+/* ================================================= */
 
 .cursor{
 
 position:fixed;
 width:24px;
 height:24px;
+
 border:2px solid var(--main);
+
 border-radius:50%;
+
 pointer-events:none;
+
 transform:translate(-50%,-50%);
+
 box-shadow:
 0 0 15px var(--main),
 0 0 40px var(--main);
 
 z-index:999999;
 
+transition:
+width .2s,
+height .2s,
+transform .08s linear;
+
 }
 
-/* ========================================= */
+/* ================================================= */
+/* PARTICLES */
+/* ================================================= */
+
+canvas{
+
+position:fixed;
+inset:0;
+z-index:-1;
+
+}
+
+/* ================================================= */
 /* LOADER */
-/* ========================================= */
+/* ================================================= */
 
 .loader{
 
 position:fixed;
 inset:0;
+
 background:black;
+
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
+
 z-index:9999999;
 
 }
 
 .loader h1{
 
-font-size:80px;
+font-size:90px;
 font-weight:900;
-letter-spacing:5px;
 
 }
 
 .loader h1 span{
 
 color:var(--main);
-text-shadow:0 0 40px var(--main);
+
+text-shadow:
+0 0 50px var(--main);
 
 }
 
 .loadingbar{
 
-width:420px;
-height:8px;
+width:450px;
+height:10px;
+
 background:#111827;
+
 border-radius:999px;
+
 overflow:hidden;
+
 margin-top:30px;
 
 }
@@ -121,6 +156,7 @@ margin-top:30px;
 display:block;
 height:100%;
 width:0%;
+
 background:
 linear-gradient(
 90deg,
@@ -142,21 +178,9 @@ width:100%;
 
 }
 
-/* ========================================= */
-/* PARTICLES */
-/* ========================================= */
-
-canvas{
-
-position:fixed;
-inset:0;
-z-index:-1;
-
-}
-
-/* ========================================= */
+/* ================================================= */
 /* NAVBAR */
-/* ========================================= */
+/* ================================================= */
 
 nav{
 
@@ -164,13 +188,15 @@ position:fixed;
 top:0;
 width:100%;
 height:90px;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
+
 padding:0 50px;
 
 background:
-rgba(2,6,23,.7);
+rgba(2,6,23,.75);
 
 backdrop-filter:blur(20px);
 
@@ -191,22 +217,27 @@ font-weight:900;
 .logo span{
 
 color:var(--main);
-text-shadow:0 0 35px var(--main);
+
+text-shadow:
+0 0 40px var(--main);
 
 }
 
 .menu{
 
 display:flex;
-gap:35px;
+gap:30px;
 
 }
 
 .menu a{
 
 text-decoration:none;
+
 color:#94a3b8;
+
 font-weight:700;
+
 transition:.4s;
 
 }
@@ -214,39 +245,77 @@ transition:.4s;
 .menu a:hover{
 
 color:white;
+
 transform:translateY(-4px);
 
 }
 
-/* ========================================= */
-/* SETTINGS */
-/* ========================================= */
+.nav-right{
 
-.settingsBtn{
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+/* ================================================= */
+/* BUTTONS */
+/* ================================================= */
+
+.iconBtn{
 
 width:50px;
 height:50px;
+
 border:none;
+
 border-radius:18px;
-background:rgba(255,255,255,.05);
+
+background:
+rgba(255,255,255,.05);
+
 color:white;
+
 font-size:22px;
+
 cursor:pointer;
 
+transition:.4s;
+
 }
+
+.iconBtn:hover{
+
+background:var(--main);
+
+transform:rotate(180deg);
+
+}
+
+/* ================================================= */
+/* SETTINGS */
+/* ================================================= */
 
 .settings{
 
 position:fixed;
-right:-360px;
+
+right:-380px;
+
 top:100px;
-width:340px;
+
+width:360px;
+
+height:calc(100vh - 120px);
+
+overflow:auto;
+
 padding:30px;
 
 background:
-rgba(15,23,42,.95);
+rgba(15,23,42,.96);
 
-backdrop-filter:blur(25px);
+backdrop-filter:blur(30px);
 
 border-left:
 1px solid rgba(255,255,255,.05);
@@ -270,30 +339,52 @@ right:0;
 
 margin-bottom:25px;
 
+font-size:32px;
+
 }
 
-.settings label{
+.setting-group{
+
+margin-bottom:30px;
+
+}
+
+.setting-group h3{
+
+margin-bottom:15px;
+
+color:#60a5fa;
+
+}
+
+.setting-group label{
 
 display:block;
-margin-bottom:20px;
+
+margin-bottom:18px;
 
 }
 
-.settings input[type=color]{
+.setting-group input[type=color]{
 
 width:100%;
 height:50px;
-margin-top:10px;
+
 border:none;
+
+margin-top:10px;
 
 }
 
 .save{
 
 width:100%;
-padding:16px;
+
+padding:18px;
+
 border:none;
-border-radius:16px;
+
+border-radius:18px;
 
 background:
 linear-gradient(
@@ -303,22 +394,25 @@ linear-gradient(
 );
 
 color:white;
+
 font-weight:800;
+
 cursor:pointer;
-margin-top:20px;
 
 }
 
-/* ========================================= */
+/* ================================================= */
 /* HERO */
-/* ========================================= */
+/* ================================================= */
 
 .hero{
 
 min-height:100vh;
 
 display:grid;
+
 grid-template-columns:1.2fr .8fr;
+
 gap:35px;
 
 padding:
@@ -356,6 +450,7 @@ transform:translateY(-8px);
 .badge{
 
 display:inline-block;
+
 padding:12px 24px;
 
 border-radius:999px;
@@ -375,8 +470,11 @@ margin-bottom:30px;
 .hero h1{
 
 font-size:90px;
+
 line-height:.95;
+
 font-weight:900;
+
 margin-bottom:30px;
 
 }
@@ -384,6 +482,7 @@ margin-bottom:30px;
 .hero h1 span{
 
 color:var(--main);
+
 text-shadow:
 0 0 40px var(--main);
 
@@ -392,11 +491,18 @@ text-shadow:
 .hero p{
 
 font-size:18px;
+
 line-height:1.9;
+
 color:#94a3b8;
+
 max-width:750px;
 
 }
+
+/* ================================================= */
+/* BUTTON AREA */
+/* ================================================= */
 
 .buttons{
 
@@ -410,11 +516,17 @@ flex-wrap:wrap;
 .btn{
 
 padding:18px 35px;
+
 border:none;
+
 border-radius:20px;
+
 font-weight:800;
+
 font-size:16px;
+
 cursor:pointer;
+
 transition:.4s;
 
 }
@@ -458,15 +570,18 @@ transform:translateY(-5px);
 
 }
 
-/* ========================================= */
+/* ================================================= */
 /* STATS */
-/* ========================================= */
+/* ================================================= */
 
 .stats{
 
 display:grid;
+
 grid-template-columns:repeat(2,1fr);
+
 gap:20px;
+
 margin-top:45px;
 
 }
@@ -474,6 +589,7 @@ margin-top:45px;
 .stat{
 
 padding:30px;
+
 border-radius:25px;
 
 background:
@@ -499,20 +615,23 @@ box-shadow:
 .stat h2{
 
 font-size:45px;
+
 margin-bottom:10px;
 
 }
 
-/* ========================================= */
+/* ================================================= */
 /* PROFILE */
-/* ========================================= */
+/* ================================================= */
 
 .profile{
 
 margin-top:35px;
 
 display:flex;
+
 align-items:center;
+
 gap:25px;
 
 padding:25px;
@@ -528,6 +647,7 @@ rgba(255,255,255,.03);
 
 width:110px;
 height:110px;
+
 border-radius:25px;
 
 box-shadow:
@@ -544,18 +664,21 @@ font-size:28px;
 .profile p{
 
 color:#94a3b8;
+
 margin-top:5px;
 
 }
 
-/* ========================================= */
-/* TWITTER FEED */
-/* ========================================= */
+/* ================================================= */
+/* FEED */
+/* ================================================= */
 
 .feed{
 
 display:flex;
+
 flex-direction:column;
+
 gap:20px;
 
 }
@@ -563,6 +686,7 @@ gap:20px;
 .post{
 
 padding:25px;
+
 border-radius:25px;
 
 background:
@@ -585,22 +709,9 @@ box-shadow:
 
 }
 
-.post h3{
-
-margin-bottom:15px;
-
-}
-
-.post p{
-
-color:#94a3b8;
-line-height:1.8;
-
-}
-
-/* ========================================= */
-/* UPDATES */
-/* ========================================= */
+/* ================================================= */
+/* UPDATE GRID */
+/* ================================================= */
 
 .updates{
 
@@ -612,20 +723,17 @@ padding:
 .updates h2{
 
 font-size:70px;
+
 margin-bottom:40px;
+
 font-weight:900;
-
-}
-
-.updates h2 span{
-
-color:var(--main);
 
 }
 
 .grid{
 
 display:grid;
+
 grid-template-columns:
 repeat(auto-fit,minmax(280px,1fr));
 
@@ -636,6 +744,7 @@ gap:25px;
 .card{
 
 padding:35px;
+
 border-radius:30px;
 
 background:
@@ -659,36 +768,58 @@ box-shadow:
 
 }
 
-.card h3{
+/* ================================================= */
+/* TERMINAL */
+/* ================================================= */
 
-font-size:28px;
-margin-bottom:15px;
+.terminal{
+
+margin-top:40px;
+
+background:black;
+
+padding:25px;
+
+border-radius:25px;
+
+font-family:monospace;
+
+height:250px;
+
+overflow:auto;
+
+border:
+1px solid rgba(255,255,255,.05);
 
 }
 
-.card p{
+.line{
 
-color:#94a3b8;
-line-height:1.8;
+margin-bottom:10px;
+
+color:#22c55e;
 
 }
 
-/* ========================================= */
+/* ================================================= */
 /* FOOTER */
-/* ========================================= */
+/* ================================================= */
 
 footer{
 
 padding:60px;
+
 text-align:center;
+
 color:#64748b;
+
 font-weight:700;
 
 }
 
-/* ========================================= */
+/* ================================================= */
 /* RESPONSIVE */
-/* ========================================= */
+/* ================================================= */
 
 @media(max-width:1200px){
 
@@ -707,13 +838,13 @@ font-size:55px;
 }
 
 </style>
-
 </head>
+
 <body>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- LOADER -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <div class="loader">
 
@@ -727,21 +858,21 @@ RBX<span>Protocol</span>
 
 </div>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- CURSOR -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <div class="cursor"></div>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- PARTICLES -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <canvas id="particles"></canvas>
 
-<!-- ========================================= -->
-<!-- NAVBAR -->
-<!-- ========================================= -->
+<!-- ================================================= -->
+<!-- NAV -->
+<!-- ================================================= -->
 
 <nav>
 
@@ -753,21 +884,26 @@ RBX<span>Protocol</span>
 
 <a href="#">Inicio</a>
 <a href="#">Seguridad</a>
-<a href="#">Twitter</a>
+<a href="#">Noticias</a>
 <a href="#">Moderadores</a>
 <a href="#">Creator Hub</a>
+<a href="#">Cloud</a>
 
 </div>
 
-<button class="settingsBtn" id="settingsBtn">
+<div class="nav-right">
+
+<button class="iconBtn" id="settingsBtn">
 ⚙
 </button>
 
+</div>
+
 </nav>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- SETTINGS -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <div class="settings" id="settingsPanel">
 
@@ -775,31 +911,45 @@ RBX<span>Protocol</span>
 Configuración
 </h2>
 
-<label>
+<div class="setting-group">
 
+<h3>
+Visual
+</h3>
+
+<label>
 <input type="checkbox" id="particlesToggle" checked>
-
  Partículas
-
 </label>
 
 <label>
-
 <input type="checkbox" id="animationsToggle" checked>
-
  Animaciones
-
 </label>
 
 <label>
+<input type="checkbox" id="glowToggle" checked>
+ Glow
+</label>
 
-Tema Principal
+<label>
+<input type="checkbox" id="terminalToggle" checked>
+ Terminal
+</label>
+
+</div>
+
+<div class="setting-group">
+
+<h3>
+Tema
+</h3>
 
 <input type="color"
 id="mainColor"
 value="#2563eb">
 
-</label>
+</div>
 
 <button class="save" id="saveBtn">
 
@@ -809,44 +959,40 @@ Guardar Configuración
 
 </div>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- HERO -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <section class="hero">
 
 <div class="panel">
 
 <div class="badge">
-⚡ DASHBOARD FUTURISTA
+⚡ INTERFAZ FUTURISTA
 </div>
 
 <h1>
 
 RBX<span>Protocol</span><br>
-Ultimate System
+Mega Interface
 
 </h1>
 
 <p>
 
-Proyecto visual futurista inspirado en interfaces gaming modernas,
-dashboards avanzados y paneles cinematográficos.
+Proyecto visual cinematográfico inspirado en dashboards gaming AAA,
+interfaces futuristas y paneles modernos estilo Creator Hub.
 
 </p>
 
 <div class="buttons">
 
 <button class="btn primary">
-
 Explorar
-
 </button>
 
 <button class="btn secondary">
-
 Ver Perfil
-
 </button>
 
 </div>
@@ -893,6 +1039,26 @@ Editor visual del proyecto
 
 </div>
 
+<div class="terminal" id="terminal">
+
+<div class="line">
+[RBX] Sistema iniciado...
+</div>
+
+<div class="line">
+[RBX] Cargando interfaz...
+</div>
+
+<div class="line">
+[RBX] Dashboard online...
+</div>
+
+<div class="line">
+[RBX] Renderizando efectos...
+</div>
+
+</div>
+
 </div>
 
 <div class="panel">
@@ -902,11 +1068,11 @@ Editor visual del proyecto
 <div class="post">
 
 <h3>
-Roblox News
+Creator Hub
 </h3>
 
 <p>
-Nuevas herramientas visuales y mejoras gráficas.
+Nueva actualización visual disponible.
 </p>
 
 </div>
@@ -914,11 +1080,11 @@ Nuevas herramientas visuales y mejoras gráficas.
 <div class="post">
 
 <h3>
-Creator Hub
+Cloud System
 </h3>
 
 <p>
-Actualización visual inspirada en estudios AAA.
+Infraestructura futurista optimizada.
 </p>
 
 </div>
@@ -930,7 +1096,7 @@ Engine Update
 </h3>
 
 <p>
-Sistema gráfico optimizado y efectos smooth.
+Sistema gráfico mejorado y smooth.
 </p>
 
 </div>
@@ -942,7 +1108,19 @@ Community
 </h3>
 
 <p>
-Paneles futuristas y nuevas interfaces premium.
+Dashboard cinematográfico activado.
+</p>
+
+</div>
+
+<div class="post">
+
+<h3>
+Security
+</h3>
+
+<p>
+Nuevas protecciones visuales agregadas.
 </p>
 
 </div>
@@ -953,116 +1131,73 @@ Paneles futuristas y nuevas interfaces premium.
 
 </section>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- UPDATES -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <section class="updates">
 
 <h2>
 
 Actualizaciones
-<span>Visuales</span>
 
 </h2>
 
 <div class="grid">
 
 <div class="card">
-
-<h3>
-🌎 Dashboard Global
-</h3>
-
-<p>
-Panel visual futurista con estadísticas dinámicas.
-</p>
-
+<h3>🌎 Dashboard</h3>
+<p>Panel global futurista.</p>
 </div>
 
 <div class="card">
-
-<h3>
-⚡ Rendimiento
-</h3>
-
-<p>
-Sistema optimizado y animaciones smooth.
-</p>
-
+<h3>🎮 Creator Hub</h3>
+<p>Interfaz inspirada en estudios AAA.</p>
 </div>
 
 <div class="card">
-
-<h3>
-🎮 Creator Hub
-</h3>
-
-<p>
-Herramientas inspiradas en estudios gaming.
-</p>
-
+<h3>⚡ Rendimiento</h3>
+<p>Sistema optimizado y smooth.</p>
 </div>
 
 <div class="card">
-
-<h3>
-🤖 IA Visual
-</h3>
-
-<p>
-Automatización visual cinematográfica.
-</p>
-
+<h3>🤖 IA Visual</h3>
+<p>Automatización cinematográfica.</p>
 </div>
 
 <div class="card">
-
-<h3>
-🛡 Seguridad
-</h3>
-
-<p>
-Protección avanzada y sistemas visuales.
-</p>
-
+<h3>☁ Cloud</h3>
+<p>Infraestructura premium.</p>
 </div>
 
 <div class="card">
-
-<h3>
-☁ Cloud System
-</h3>
-
-<p>
-Infraestructura visual estilo corporativo.
-</p>
-
+<h3>🛡 Seguridad</h3>
+<p>Paneles visuales avanzados.</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- FOOTER -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <footer>
 
-RBXProtocol — Diseño Futurista Conceptual
+RBXProtocol — Mega Futuristic Interface
 
 </footer>
 
-<!-- ========================================= -->
+<!-- ================================================= -->
 <!-- JAVASCRIPT -->
-<!-- ========================================= -->
+<!-- ================================================= -->
 
 <script>
 
-/* ========================================= */
+/* ================================================= */
 /* LOADER */
-/* ========================================= */
+/* ================================================= */
 
 setTimeout(()=>{
 
@@ -1071,9 +1206,9 @@ document.querySelector('.loader')
 
 },5000);
 
-/* ========================================= */
+/* ================================================= */
 /* CURSOR */
-/* ========================================= */
+/* ================================================= */
 
 const cursor=
 document.querySelector('.cursor');
@@ -1085,9 +1220,9 @@ cursor.style.top=e.clientY+'px';
 
 });
 
-/* ========================================= */
+/* ================================================= */
 /* PARTICLES */
-/* ========================================= */
+/* ================================================= */
 
 const canvas=
 document.getElementById('particles');
@@ -1100,7 +1235,7 @@ canvas.height=window.innerHeight;
 
 let particles=[];
 
-for(let i=0;i<180;i++){
+for(let i=0;i<220;i++){
 
 particles.push({
 
@@ -1158,9 +1293,9 @@ requestAnimationFrame(animate);
 
 animate();
 
-/* ========================================= */
+/* ================================================= */
 /* LIVE STATS */
-/* ========================================= */
+/* ================================================= */
 
 function updateStats(){
 
@@ -1176,9 +1311,9 @@ document.getElementById('servers')
 
 setInterval(updateStats,2000);
 
-/* ========================================= */
+/* ================================================= */
 /* SETTINGS */
-/* ========================================= */
+/* ================================================= */
 
 const settingsBtn=
 document.getElementById('settingsBtn');
@@ -1188,86 +1323,4 @@ document.getElementById('settingsPanel');
 
 settingsBtn.onclick=()=>{
 
-settingsPanel.classList.toggle('active');
-
-};
-
-function applyConfig(config){
-
-if(!config.particles){
-
-canvas.style.display='none';
-
-}else{
-
-canvas.style.display='block';
-
-}
-
-if(config.color){
-
-document.documentElement
-.style
-.setProperty('--main',config.color);
-
-}
-
-}
-
-document.getElementById('saveBtn')
-.onclick=()=>{
-
-const config={
-
-particles:
-document.getElementById(
-'particlesToggle'
-).checked,
-
-animations:
-document.getElementById(
-'animationsToggle'
-).checked,
-
-color:
-document.getElementById(
-'mainColor'
-).value
-
-};
-
-localStorage.setItem(
-'rbx_config',
-JSON.stringify(config)
-);
-
-applyConfig(config);
-
-alert('Configuración guardada');
-
-};
-
-const saved=
-JSON.parse(
-localStorage.getItem(
-'rbx_config'
-)
-);
-
-if(saved){
-
-applyConfig(saved);
-
-}
-
-window.addEventListener('resize',()=>{
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-});
-
-</script>
-
-</body>
-</html>
+settingsPanel.classList.toggle
