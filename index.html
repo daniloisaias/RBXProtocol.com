@@ -636,6 +636,211 @@ applyConfig(saved);
 </html>
 ```
 
+## SISTEMA DE BÚSQUEDA ULTRA GX
+
+Agrega este sistema dentro del HTML para que el buscador funcione y permita abrir páginas reales:
+
+```html
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Buscar páginas, videos, experiencias...">
+<button id="searchBtn">🔍</button>
+</div>
+```
+
+```javascript
+const searchBtn=document.getElementById('searchBtn');
+const searchInput=document.getElementById('searchInput');
+
+searchBtn.onclick=()=>{
+
+const query=searchInput.value.trim();
+
+if(!query)return;
+
+window.open(
+'https://www.google.com/search?q='+encodeURIComponent(query),
+'_blank'
+);
+
+};
+
+searchInput.addEventListener('keydown',e=>{
+
+if(e.key==='Enter'){
+searchBtn.click();
+}
+
+});
+```
+
+---
+
+## SISTEMA DE TABS ESTILO OPERA GX
+
+```html
+<div class="tabs">
+
+<div class="tab active">
+🌎 Inicio
+</div>
+
+<div class="tab">
+🎮 Creator Hub
+</div>
+
+<div class="tab">
+📢 Noticias
+</div>
+
+<div class="new-tab">
++
+</div>
+
+</div>
+```
+
+```css
+.tabs{
+display:flex;
+gap:12px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.tab,
+.new-tab{
+padding:14px 22px;
+border-radius:16px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.05);
+cursor:pointer;
+transition:.4s;
+font-weight:700;
+}
+
+.tab:hover,
+.new-tab:hover{
+background:rgba(37,99,235,.2);
+transform:translateY(-3px);
+}
+
+.tab.active{
+background:linear-gradient(90deg,#2563eb,#3b82f6);
+}
+```
+
+---
+
+## SISTEMA DE APPS RÁPIDAS
+
+```html
+<div class="apps-grid">
+
+<div class="app-card">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+<h3>YouTube</h3>
+</div>
+
+<div class="app-card">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png">
+<h3>Discord</h3>
+</div>
+
+<div class="app-card">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+<h3>GitHub</h3>
+</div>
+
+<div class="app-card">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png">
+<h3>Twitter</h3>
+</div>
+
+</div>
+```
+
+```css
+.apps-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.app-card{
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.05);
+text-align:center;
+transition:.5s;
+cursor:pointer;
+}
+
+.app-card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 60px rgba(37,99,235,.2);
+}
+
+.app-card img{
+width:70px;
+margin-bottom:15px;
+}
+```
+
+---
+
+## SISTEMA DE NOTIFICACIONES
+
+```html
+<div class="notification" id="notification">
+⚡ RBXGX iniciado correctamente
+</div>
+```
+
+```css
+.notification{
+position:fixed;
+right:30px;
+bottom:30px;
+padding:18px 24px;
+border-radius:18px;
+background:rgba(15,23,42,.95);
+border:1px solid rgba(255,255,255,.05);
+box-shadow:0 0 60px rgba(37,99,235,.2);
+font-weight:700;
+animation:slideIn .7s ease;
+}
+
+@keyframes slideIn{
+from{
+transform:translateX(100px);
+opacity:0;
+}
+}
+```
+
+---
+
+## SISTEMA RGB DINÁMICO
+
+```javascript
+let hue=0;
+
+setInterval(()=>{
+
+hue++;
+
+document.documentElement.style.setProperty(
+'--main',
+`hsl(${hue},100%,60%)`
+);
+
+},80);
+```
+
+---
+
 ## Ideas para hacerlo todavía más épico
 
 * Fondo de video animado
